@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <cctype>
+# include "contacts.hpp"
 
 class phonebook
 {

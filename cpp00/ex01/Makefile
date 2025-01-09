@@ -6,9 +6,14 @@ RM 			= rm -f
 
 NAME 		= phonebook
 
-INCLUDE 	= -I ./
+INCLUDE 	= phonebook.hpp \
+				contacts.hpp \
 
-SRCS 		= cpp01.cpp
+
+SRCS 		= contacts.cpp \
+				phonebook.cpp \
+				main.cpp
+				
 
 OBJS		= $(SRCS:.cpp=.o)
 
