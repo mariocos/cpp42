@@ -18,6 +18,7 @@ private:
 	std::string	last_name;
 	std::string	nbr;
 	std::string	nick;
+	std::string secret;
 };
 
 #endif
