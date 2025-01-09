@@ -1,32 +1,27 @@
-CXX 			= c++
+CXX         = c++
+CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
+RM          = rm -f
 
-CXXFLAGS 		= -Wall -Wextra -Werror -std=c++98
+NAME        = phonebook
 
-RM 			= rm -f
+INCLUDES    = phonebook.hpp contacts.hpp
 
-NAME 		= phonebook
+SRCS        = contacts.cpp phonebook.cpp main.cpp
 
-INCLUDE 	= phonebook.hpp \
-				contacts.hpp \
+OBJS        = $(SRCS:.cpp=.o)
 
+all: $(NAME)
 
-SRCS 		= contacts.cpp \
-				phonebook.cpp \
-				main.cpp
-				
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-OBJS		= $(SRCS:.cpp=.o)
-
-all:		$(NAME)
-
-$(NAME): 	$(OBJS)
-			$(CXX) $(CXXFLAGS) $(SRCS) $(INCLUDE) -c
-			$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME) $(INCLUDE)
+%.o: %.cpp $(INCLUDES)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-			$(RM) -r $(OBJS)
+	$(RM) $(OBJS)
 
-fclean : 	clean
-			$(RM) $(NAME)
+fclean: clean
+	$(RM) $(NAME)
 
-re:			fclean all
+re: fclean all
