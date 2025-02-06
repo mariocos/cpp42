@@ -63,7 +63,7 @@ void	std_print(std::string str)
 	}
 	else
 	{
-		std::cout.write(str.c_str(), 9);
+		std::cout.write(str.c_str(), 10);
 		std::cout << ".";
 	}
 }
