@@ -1,6 +1,8 @@
 #ifndef HARL_HPP
 #define HARL_HPP
 
+#include <iostream>
+
 class harl
 {
 private:
@@ -14,16 +16,6 @@ public:
 	~harl();
 	void	complain(std::string level);
 };
-
-harl::harl(/* args */)
-{
-}
-
-harl::~harl()
-{
-}
-
-void	harl::complain(std::string level)
 
 
 

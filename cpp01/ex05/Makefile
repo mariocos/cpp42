@@ -4,9 +4,9 @@ RM          = rm -f
 
 NAME        = sed
 
-INCLUDES    = 
+INCLUDES    = harl.hpp
 
-SRCS        = main.cpp
+SRCS        = main.cpp harl.cpp
 
 OBJS        = $(SRCS:.cpp=.o)
 
