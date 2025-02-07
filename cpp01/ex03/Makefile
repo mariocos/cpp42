@@ -4,9 +4,9 @@ RM          = rm -f
 
 NAME        = Brian
 
-INCLUDES    = humanA.hpp weapon.hpp
+INCLUDES    = humanA.hpp weapon.hpp humanB.hpp
 
-SRCS        = humanA.cpp weapon.cpp main.cpp
+SRCS        = humanA.cpp weapon.cpp main.cpp humanB.cpp
 
 OBJS        = $(SRCS:.cpp=.o)
 
