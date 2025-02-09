@@ -38,7 +38,7 @@ fixed::~fixed()
 
 std::ostream&	operator<<(std::ostream& out, const fixed& c_fixed)
 {
-	out << c_fixed.toFloat();
+	out<<c_fixed.toFloat();
 	return (out);
 }
 
@@ -57,7 +57,7 @@ fixed::fixed(const float fvar)
 
 float	fixed::toFloat(void)const
 {
-	return ((float)value / (float)(1>>ratio));
+	return ((float)value / (float)(1<<ratio));
 }
 
 int		fixed::toInt(void)const
