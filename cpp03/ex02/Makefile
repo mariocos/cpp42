@@ -4,9 +4,9 @@ RM          = rm -f
 
 NAME        = i_love_traps
 
-INCLUDES    = ClapTrap.hpp ScavTrap.hpp
+INCLUDES    = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 
-SRCS        = ClapTrap.cpp main.cpp ScavTrap.cpp
+SRCS        = ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJS        = $(SRCS:.cpp=.o)
 

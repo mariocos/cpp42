@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : claptrap()
+ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "default constructor called for ScavTrap\n";
 	ep = SCAV_EP;
@@ -8,7 +8,7 @@ ScavTrap::ScavTrap() : claptrap()
 	ac = SCAV_AC;
 }
 
-ScavTrap::ScavTrap(std::string nname) : claptrap(nname)
+ScavTrap::ScavTrap(std::string nname) : ClapTrap(nname)
 {
 	std::cout << nname << " named constructing ScavTrap\n";
 	ep = SCAV_EP;
@@ -16,7 +16,7 @@ ScavTrap::ScavTrap(std::string nname) : claptrap(nname)
 	ac = SCAV_AC;
 }
 
-ScavTrap::ScavTrap(ScavTrap& cpy) : claptrap(cpy.name)
+ScavTrap::ScavTrap(ScavTrap& cpy) : ClapTrap(cpy.name)
 {
 	std::cout << "calling scav copy constructor\n";
 	*this = cpy;

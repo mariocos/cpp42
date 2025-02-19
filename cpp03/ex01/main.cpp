@@ -1,9 +1,9 @@
-#include "scavtrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main(void)
 {
-	claptrap	clap("Bob");
-	scavtrap	scav("Boby");
+	ClapTrap	clap("Bob");
+	ScavTrap	scav("Boby");
 
 	scav.guardGate();
 	for (int i = 0; i < EP; i++)
