@@ -3,6 +3,11 @@
 
 #include <iostream>
 
+# define HP 10
+# define EP 10
+# define AC 0
+
+
 class claptrap
 {
 private:
@@ -14,32 +19,14 @@ private:
 public:
 	claptrap();
 	claptrap(std::string name);
+	claptrap(claptrap& cpy);
 	~claptrap();
+	claptrap&	operator=(claptrap& cpy);
+	std::string	getname(void);
+	void		setname(std::string nname);
 	void	attack(const std::string& target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 };
-
-claptrap::claptrap()
-{
-	std::cout << "construCTINNNNNGGGGG\n";
-}
-
-claptrap::claptrap(std::string nname)
-{
-	std::cout << "named constructinggg\n";
-	name = nname;
-}
-
-claptrap::~claptrap()
-{
-}
-
-
-
-
-
-
-
 
 #endif
