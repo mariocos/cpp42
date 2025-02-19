@@ -1,31 +1,31 @@
-#include "claptrap.hpp"
+#include "ClapTrap.hpp"
 
 /* constructors */
-claptrap::claptrap() : hp(HP), ep(EP), ac(AC)
+ClapTrap::ClapTrap() : hp(HP), ep(EP), ac(AC)
 {
 	std::cout << "default construCTINNNNNGGGGG\n";
 }
 
-claptrap::claptrap(claptrap& cpy)
+ClapTrap::ClapTrap(ClapTrap& cpy)
 {
 	std::cout << "copy constructing\n";
 	*this = cpy;
 }
 
-claptrap::claptrap(std::string nname) : hp(HP), ep(EP), ac(AC)
+ClapTrap::ClapTrap(std::string nname) : hp(HP), ep(EP), ac(AC)
 {
 	std::cout << "named constructinggg\n";
 	name = nname;
 }
 
-claptrap::~claptrap()
+ClapTrap::~ClapTrap()
 {
 	std::cout << "destructing\n";
 }
 
 /* operator */
 
-claptrap&	claptrap::operator=(claptrap& cpy)
+ClapTrap&	ClapTrap::operator=(ClapTrap& cpy)
 {
 	if (this != &cpy)
 		name = cpy.getname();
@@ -34,19 +34,19 @@ claptrap&	claptrap::operator=(claptrap& cpy)
 
 /* getters and setters */
 
-std::string	claptrap::getname(void)
+std::string	ClapTrap::getname(void)
 {
 	return (name);
 }
 
-void	claptrap::setname(std::string nname)
+void	ClapTrap::setname(std::string nname)
 {
 	name = nname;
 }
 
 /* member functions */
 
-void	claptrap::attack(const std::string& target)
+void	ClapTrap::attack(const std::string& target)
 {
 	if (hp < 1)
 	{
@@ -60,14 +60,14 @@ void	claptrap::attack(const std::string& target)
 	std::cout << name << " is attacking " << target << " doing " << this->ac << " amount of damage\n";
 }
 
-void	claptrap::takeDamage(unsigned int amount)
+void	ClapTrap::takeDamage(unsigned int amount)
 {
 	std::cout << name << " is taking " << amount << " of damage\n";
 	hp -= amount;
 	ep--;
 }
 
-void	claptrap::beRepaired(unsigned int amount)
+void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (hp < 1)
 	{

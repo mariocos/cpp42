@@ -4,9 +4,9 @@ RM          = rm -f
 
 NAME        = bots
 
-INCLUDES    = claptrap.hpp
+INCLUDES    = ClapTrap.hpp
 
-SRCS        = claptrap.cpp main.cpp
+SRCS        = ClapTrap.cpp main.cpp
 
 OBJS        = $(SRCS:.cpp=.o)
 

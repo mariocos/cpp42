@@ -8,7 +8,7 @@
 # define AC 0
 
 
-class claptrap
+class ClapTrap
 {
 private:
 	/* data */
@@ -17,11 +17,11 @@ private:
 	int		ep;
 	int		ac;
 public:
-	claptrap();
-	claptrap(std::string name);
-	claptrap(claptrap& cpy);
-	~claptrap();
-	claptrap&	operator=(claptrap& cpy);
+	ClapTrap();
+	ClapTrap(std::string name);
+	ClapTrap(ClapTrap& cpy);
+	~ClapTrap();
+	ClapTrap&	operator=(ClapTrap& cpy);
 	std::string	getname(void);
 	void		setname(std::string nname);
 	void	attack(const std::string& target);
