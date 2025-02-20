@@ -1,9 +1,9 @@
-#include "claptrap.hpp"
+#include "ClapTrap.hpp"
 
 int	main(void)
 {
-	claptrap	clap1("tom");
-	claptrap	clap2("jerry");
+	ClapTrap	clap1("tom");
+	ClapTrap	clap2("jerry");
 
 	for (int i = 0; i < EP; i++)
 	{
