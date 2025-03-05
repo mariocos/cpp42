@@ -2,11 +2,11 @@ CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
 RM          = rm -f
 
-NAME        = i_love_traps
+NAME        = zooo
 
-INCLUDES    = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
+INCLUDES    = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp WrongDog.hpp
 
-SRCS        = ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp
+SRCS        = Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp WrongDog.cpp main.cpp
 
 OBJS        = $(SRCS:.cpp=.o)
 

@@ -22,11 +22,12 @@ Animal&	Animal::operator=(Animal& cpy)
 	std::cout << "anima copy assignment operator called\n";
 	if (this != &cpy)
 	{
-		type = cpy.gettype();
+		type = cpy.getType();
 	}
+	return (*this);
 }
 
-std::string	Animal::gettype(void)const
+std::string	Animal::getType(void)const
 {
 	return (type);
 }

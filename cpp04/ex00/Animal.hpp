@@ -1,5 +1,5 @@
 #ifndef ANIMAL_HPP
-#define ANIMA_HPP
+#define ANIMAL_HPP
 
 #include <iostream>
 
@@ -13,7 +13,7 @@ public:
 	Animal(Animal& cpy);
 	virtual	~Animal();
 	Animal&	operator=(Animal& cpy);
-	std::string	gettype(void)const;
+	std::string	getType(void)const;
 	virtual void	makeSound(void)const;
 };
 
