@@ -1,11 +1,11 @@
 #include "WrongDog.hpp"
 
-WrongDog::WrongDog()
+WrongDog::WrongDog() : WrongAnimal()
 {
 	std::cout << "WrongDog default constructor called\n";
 }
 
-WrongDog::WrongDog(WrongDog& cpy) : Animal(cpy)
+WrongDog::WrongDog(WrongDog& cpy) : WrongAnimal(cpy)
 {
 	std::cout << "WrongDog copy constructor being called\n";
 	*this = cpy;

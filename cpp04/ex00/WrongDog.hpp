@@ -1,9 +1,9 @@
 #ifndef WRONGDOG_HPP
 #define WRONGDOG_HPP
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class WrongDog : public Animal
+class WrongDog : public WrongAnimal
 {
 public:
 	WrongDog();

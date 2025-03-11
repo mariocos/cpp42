@@ -1,6 +1,6 @@
 #include "Dog.hpp"
 
-Dog::Dog() : Animal()
+Dog::Dog() : Animal(), brain(new Brain)
 {
 	std::cout << "Dog default constructor called\n";
 }
@@ -14,6 +14,7 @@ Dog::Dog(Dog& cpy) : Animal(cpy)
 Dog::~Dog()
 {
 	std::cout << "Dog destructor called\n";
+	delete brain;
 }
 
 Dog&	Dog::operator=(Dog& cpy)
@@ -29,4 +30,14 @@ Dog&	Dog::operator=(Dog& cpy)
 void	Dog::makeSound(void)const
 {
 	std::cout << "Barf\n";
+}
+
+void	Dog::print_ideas(void)
+{
+	brain->print_ideas();
+}
+
+void	Dog::set_ideas(std::string new_thought)
+{
+	brain->set_ideas(new_thought);
 }
