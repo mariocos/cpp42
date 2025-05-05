@@ -4,9 +4,9 @@ RM          = rm -f
 
 NAME        = baca
 
-INCLUDES    = ScalarConverter.hpp
+INCLUDES    = Serializer.hpp
 
-SRCS        = print_utils.cpp ScalarConverter.cpp find_type.cpp main.cpp
+SRCS        = Serializer.cpp main.cpp
 
 OBJS        = $(SRCS:.cpp=.o)
 

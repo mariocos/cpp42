@@ -14,6 +14,7 @@ Serializer::Serializer(Serializer& cpy)
 Serializer& Serializer::operator=(Serializer& cpy)
 {
 	std::cout << "Serializer copy assignment operator called\n";
+	(void)cpy;
 	return (*this);
 }
 
