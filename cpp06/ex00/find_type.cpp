@@ -12,7 +12,7 @@ int	check_if_int(const std::string& string, size_t len)
 	}
 	while (i < len)
 	{
-		if (!isdigit(string[0]))
+		if (!isdigit(string[i]))
 			break ;
 		i++;
 	}
@@ -29,7 +29,7 @@ int	check_if_float(const std::string& string, size_t len, size_t dot_pos)
 		i++;
 	while (i < dot_pos)
 	{
-		if (!isdigit(string[0]))
+		if (!isdigit(string[i]))
 			break ;
 		i++;
 	}
@@ -38,7 +38,7 @@ int	check_if_float(const std::string& string, size_t len, size_t dot_pos)
 	i++;
 	while (i < len)
 	{
-		if (!isdigit(string[0]))
+		if (!isdigit(string[i]))
 			break ;
 		i++;
 	}

@@ -35,7 +35,7 @@ void	prINT(const std::string& string)
 		std::cout << "char: Not displayable\n";
 	else
 		std::cout << "char: " << "'" << static_cast<char>(nb) << "'\n";
-	if (nb >> sizeof(int) != 0)//checks if its out of int range
+	if (nb > std::numeric_limits<int>::max() || nb < std::numeric_limits<int>::min())
 		std::cout << "int: impossible\n";
 	else
 		std::cout << "int: " << static_cast<int>(nb) << "\n";
@@ -64,7 +64,7 @@ void	print_char(const std::string& string)
 void	print_double(const std::string& string)
 {
 	double	nb = atof(string.c_str());
-	bool	has_decimal = (fabs(nb - static_cast<int>(nb)) < 0.0000000000001);
+	bool	is_integer = (fabs(nb - static_cast<int>(nb)) < 0.0000000000001);
 
 	/* char */
 	if (nb < 0 || nb > 127)
@@ -83,25 +83,25 @@ void	print_double(const std::string& string)
 	/* float */
 	if (nb < std::numeric_limits<float>::min() || nb > std::numeric_limits<float>::max())
 		std::cout << "float: impossible\n";
-	else if (!has_decimal)
-		std::cout << "float: " << static_cast<float>(nb) << "f\n";
-	else
+	else if (is_integer)
 		std::cout << "float: " << static_cast<float>(nb) << ".0f\n";
+	else
+		std::cout << "float: " << static_cast<float>(nb) << "f\n";
 
 	/* double */
 	if (nb < std::numeric_limits<double>::min() || nb > std::numeric_limits<double>::max())
 		std::cout << "double: impossible\n";
-	else if (!has_decimal)
-		std::cout << "double: " << static_cast<double>(nb) << "\n";
-	else
+	else if (is_integer)
 		std::cout << "double: " << static_cast<double>(nb) << ".0\n";
+	else
+		std::cout << "double: " << static_cast<double>(nb) << "\n";
 }
 
 
 void	print_float(const std::string& string)
 {
 	float	nb = atof(string.c_str());
-	bool	has_decimal = (fabs(nb - static_cast<int>(nb)) < 0.0000000000001);
+	bool	is_integer = (fabs(nb - static_cast<int>(nb)) < 0.0000000000001);
 
 	/* char */
 	if (nb < 0 || nb > 127)
@@ -120,14 +120,14 @@ void	print_float(const std::string& string)
 	/* float */
 	if (nb < std::numeric_limits<float>::min() || nb > std::numeric_limits<float>::max())
 		std::cout << "float: impossible\n";
-	else if (!has_decimal)
-		std::cout << "float: " << static_cast<float>(nb) << "f\n";
-	else
+	else if (is_integer)
 		std::cout << "float: " << static_cast<float>(nb) << ".0f\n";
+	else
+		std::cout << "float: " << static_cast<float>(nb) << "f\n";
 
 	/* double */
-	if (!has_decimal)
-		std::cout << "double: " << static_cast<double>(nb) << "\n";
-	else
+	if (is_integer)
 		std::cout << "double: " << static_cast<double>(nb) << ".0\n";
+	else
+		std::cout << "double: " << static_cast<double>(nb) << "\n";
 }

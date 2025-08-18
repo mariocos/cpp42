@@ -7,7 +7,7 @@ Serializer::Serializer()
 
 Serializer::Serializer(Serializer& cpy)
 {
-	std::cout << "serializer copy constructor calledn\n";
+	std::cout << "serializer copy constructor called\n";
 	*this = cpy;
 }
 

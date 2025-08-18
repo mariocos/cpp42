@@ -2,6 +2,8 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
+#include <cstdlib>
+#include <exception>
 
 
 Base* generate(void)
@@ -43,7 +45,7 @@ void	identify(Base& p)
 		std::cout << "I identify this as a A class\n";
 		(void)a;
 	}
-	catch(const std::exception& e)
+	catch(const std::exception&)
 	{
 	}
 	try
@@ -52,7 +54,7 @@ void	identify(Base& p)
 		std::cout << "I identify this as a B class\n";
 		(void)b;
 	}
-	catch(const std::exception& e)
+	catch(const std::exception&)
 	{
 	}
 	try
@@ -61,7 +63,7 @@ void	identify(Base& p)
 		std::cout << "I identify this as a C class\n";
 		(void)c;
 	}
-	catch(const std::exception& e)
+	catch(const std::exception&)
 	{
 	}
 }

@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
-# include <cmath>
-# include <limits>
+#include <cmath>
+#include <limits>
+#include <cctype>
 
 class ScalarConverter
 {

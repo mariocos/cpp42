@@ -13,5 +13,5 @@ int	main(void)
 	Data *des_data = Serializer::deserialize(raw_data);
 	std::cout << "deserialized data is: " << des_data->name << "\n";
 
-	delete data;
+	delete des_data; // Use des_data instead of data since they point to the same memory
 }
