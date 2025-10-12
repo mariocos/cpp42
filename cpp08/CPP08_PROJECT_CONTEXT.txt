@@ -1,0 +1,275 @@
+================================================================================
+                    CPP MODULE 08 - PROJECT CONTEXT
+                         42 SCHOOL PROJECT
+================================================================================
+
+PROJECT NAME: cpp08
+MODULE FOCUS: Standard Template Library (STL) and Iterators
+C++ STANDARD: C++98
+
+================================================================================
+                           MODULE OVERVIEW
+================================================================================
+
+CPP Module 08 is the eighth module in 42 School's C++ curriculum and focuses
+on the Standard Template Library (STL) and iterators. This module builds upon
+the template concepts learned in Module 07 and applies them to practical use
+cases with the STL.
+
+The primary objective is to equip students with the skills to effectively use
+the STL, enabling them to write more efficient and maintainable C++ code by
+leveraging pre-built, optimized data structures and algorithms.
+
+================================================================================
+                         KEY LEARNING OBJECTIVES
+================================================================================
+
+1. STL CONTAINERS
+   - Understand and utilize standard containers (std::vector, std::list, 
+     std::map, std::deque, std::stack, etc.)
+   - Learn the appropriate use cases for each container type
+   - Understand time and space complexity of container operations
+
+2. ITERATORS
+   - Master different types of iterators (input, output, forward, 
+     bidirectional, random access)
+   - Use iterators to traverse and manipulate data within containers
+   - Implement custom iterators for user-defined containers
+
+3. CONTAINER ADAPTORS
+   - Understand the role and functionality of container adaptors
+   - Work with stack, queue, and priority_queue
+
+4. STL ALGORITHMS
+   - Apply standard algorithms for common operations (searching, sorting,
+     modifying data)
+   - Combine iterators with algorithms for efficient data processing
+
+================================================================================
+                         TYPICAL EXERCISES
+================================================================================
+
+Based on the 42 School structure, cpp08 typically includes 3 exercises:
+
+EXERCISE 00: easyfind
+- Implement a function template that finds the first occurrence of an 
+  element in a container
+- Must work with any container type
+- Practice with templates and iterators
+- Handle cases where the element is not found (likely throw exception)
+
+EXERCISE 01: Span
+- Implement a Span class that can store a maximum of N integers
+- Must have methods to:
+  * Store individual numbers (addNumber)
+  * Calculate the shortest span between stored numbers (shortestSpan)
+  * Calculate the longest span between stored numbers (longestSpan)
+  * Add a range of numbers efficiently (bonus: using iterators)
+- Handle edge cases (not enough numbers to calculate spans)
+- Efficient storage and retrieval using STL containers
+
+EXERCISE 02: MutantStack
+- Implement a MutantStack class that extends std::stack functionality
+- Add iterator support to std::stack (which normally doesn't have iterators)
+- Must inherit from std::stack or use it as a member
+- Implement begin() and end() methods to enable iteration
+- Demonstrate that it behaves exactly like std::list when iterated
+- Maintain all standard stack operations (push, pop, top, etc.)
+
+================================================================================
+                    GENERAL PROJECT REQUIREMENTS
+================================================================================
+
+COMPILATION
+- Compile with: c++ -Wall -Wextra -Werror -std=c++98
+- Must compile without errors or warnings
+- Use a Makefile with rules: all, clean, fclean, re
+- No relinking
+
+MEMORY MANAGEMENT
+- All dynamically allocated memory must be properly freed
+- No memory leaks are tolerated (checked with valgrind)
+- Memory must be allocated on the heap when appropriate
+- Proper use of constructors and destructors (Orthodox Canonical Form)
+
+CODE ORGANIZATION
+- One class per file (header + implementation)
+- Class names should match file names
+- Include guards in all header files
+- Proper separation of interface and implementation
+
+C++ SPECIFIC RULES
+- Use C++98 standard
+- No C functions except write() for error output
+- Use C++ standard library functions and containers
+- Proper use of const correctness
+- Avoid using namespace std in header files
+- Use references where appropriate instead of pointers
+
+FORBIDDEN
+- No using namespace <ns_name> in header files
+- No friend keywords
+- No use of the STL in exercises where you're implementing STL-like features
+  (exception: cpp08 focuses ON using STL)
+
+CANONICAL FORM (when creating classes)
+- Default constructor
+- Copy constructor
+- Copy assignment operator
+- Destructor
+- All four must be properly implemented
+
+ERROR HANDLING
+- Use exceptions where appropriate
+- Handle all edge cases
+- Provide meaningful error messages
+- Test with various inputs including edge cases
+
+TESTING
+- Write comprehensive main() functions to test all functionality
+- Test edge cases and error conditions
+- Include tests in comments or separate test files
+- Demonstrate proper functionality with clear output
+
+================================================================================
+                         EVALUATION CRITERIA
+================================================================================
+
+CODE FUNCTIONALITY (60%)
+- Program compiles without errors
+- All required functions are implemented correctly
+- Edge cases are handled properly
+- No crashes or undefined behavior
+
+CODE QUALITY (30%)
+- Clean, readable, and well-organized code
+- Proper naming conventions
+- Adequate comments where necessary
+- Efficient implementation
+- Proper use of C++ features
+
+MEMORY MANAGEMENT (10%)
+- No memory leaks (verified with valgrind)
+- Proper resource management
+- Correct use of destructors and RAII principles
+
+BONUS CONSIDERATIONS
+- Additional functionality beyond requirements
+- Exceptional code quality and optimization
+- Creative solutions to problems
+- Extra test cases
+
+================================================================================
+                      SUBMISSION AND EVALUATION
+================================================================================
+
+SUBMISSION
+- Submit via Git repository
+- Only files in the repo at evaluation time will be graded
+- Ensure all necessary files are committed
+- Test compilation on fresh clone
+
+EVALUATION PROCESS
+- Peer evaluation by other 42 students
+- Automated testing with Moulinette (if applicable)
+- Discussion of implementation choices
+- Code review and defense
+
+GRADING SYSTEM
+- Projects are graded on a scale of 0-100 (minimum 75 to pass)
+- Major errors (memory leaks, crashes, wrong output) can fail the project
+- Meeting all requirements typically results in 100
+- Bonus points available for exceptional work (up to 125)
+
+================================================================================
+                         IMPLEMENTATION STRATEGY
+================================================================================
+
+RECOMMENDED APPROACH:
+
+1. UNDERSTAND THE REQUIREMENTS
+   - Read the subject carefully
+   - Identify all required functions and classes
+   - Understand expected behavior and edge cases
+
+2. DESIGN THE SOLUTION
+   - Plan class hierarchy and structure
+   - Identify which STL containers to use
+   - Design the interface (public methods)
+   - Plan error handling strategy
+
+3. IMPLEMENT INCREMENTALLY
+   - Start with basic class structure
+   - Implement one function at a time
+   - Test each function before moving to the next
+   - Handle edge cases as you go
+
+4. TEST THOROUGHLY
+   - Create comprehensive test cases
+   - Test with valid inputs
+   - Test with edge cases (empty, single element, maximum size)
+   - Test error conditions
+   - Use valgrind to check for memory leaks
+
+5. REFINE AND OPTIMIZE
+   - Review code for clarity and efficiency
+   - Add comments where helpful
+   - Ensure const correctness
+   - Verify compliance with all requirements
+
+================================================================================
+                          USEFUL RESOURCES
+================================================================================
+
+STL CONTAINERS TO STUDY:
+- std::vector (dynamic array)
+- std::list (doubly linked list)
+- std::deque (double-ended queue)
+- std::stack (LIFO container adaptor)
+- std::queue (FIFO container adaptor)
+- std::map (ordered key-value pairs)
+
+STL ALGORITHMS TO REVIEW:
+- std::find
+- std::sort
+- std::min_element / std::max_element
+- std::distance
+- std::adjacent_find
+
+KEY CONCEPTS:
+- Iterator categories and their capabilities
+- Container requirements and guarantees
+- Time complexity of container operations
+- Exception safety guarantees
+
+================================================================================
+                              NOTES
+================================================================================
+
+COMMON PITFALLS TO AVOID:
+- Not handling exceptions properly
+- Memory leaks in exception scenarios
+- Not testing edge cases (empty containers, single element)
+- Incorrect iterator usage
+- Not making methods const when they should be
+- Using features from C++11 or later (must be C++98)
+
+TIPS FOR SUCCESS:
+- Read cppreference.com for STL documentation
+- Test with multiple container types (vector, list, deque)
+- Use const iterators when not modifying data
+- Remember that iterators can be invalidated by container modifications
+- Think about exception safety when implementing functions
+- Use RAII principles for resource management
+
+42 SCHOOL PHILOSOPHY:
+- Learn by doing and peer collaboration
+- Self-directed learning and research
+- Understanding concepts deeply, not just copying code
+- Problem-solving and critical thinking
+- Code quality and maintainability matter
+
+================================================================================
+                              END OF CONTEXT
+================================================================================
+
