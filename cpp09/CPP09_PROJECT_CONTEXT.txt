@@ -1,0 +1,928 @@
+================================================================================
+                    CPP09 PROJECT - COMPREHENSIVE CONTEXT
+                              42 School
+================================================================================
+
+Last Updated: October 15, 2025
+Project: CPP Module 09
+Focus: Standard Template Library (STL) and Containers
+
+================================================================================
+SECTION 1: ABOUT 42 SCHOOL
+================================================================================
+
+42 is a tuition-free, project-based coding school that operates on a unique
+educational model:
+
+KEY CHARACTERISTICS:
+- No traditional teachers or classes
+- Peer-to-peer learning environment
+- Self-paced curriculum
+- Project-based education
+- Focus on autonomy, collaboration, and problem-solving
+- The "Piscine" serves as the intensive 4-week entrance exam
+
+EDUCATIONAL PHILOSOPHY:
+- Students learn by doing projects
+- Collaboration is encouraged and essential
+- Emphasis on practical, real-world problem-solving
+- Students progress at their own pace
+- Learning through teaching others during evaluations
+
+CURRICULUM STRUCTURE:
+1. Core Curriculum (12-18 months): C/C++ programming, data structures,
+   algorithms, network programming, system administration
+2. Work Experience (4-6 months): Professional internships
+3. Specialization Path (up to 5 years): AI, cybersecurity, web/mobile dev, etc.
+4. Work Experience 2: Final internship
+
+================================================================================
+SECTION 2: EVALUATION STANDARDS AT 42
+================================================================================
+
+PEER EVALUATION SYSTEM ("Defenses"):
+
+The evaluation process is integral to learning at 42:
+
+1. PEER EVALUATIONS:
+   - Students assess each other's work
+   - Conducted in person to emphasize direct interaction
+   - Encourage constructive feedback and collaboration
+   - Evaluators must familiarize themselves with project requirements
+   - Students learn by both being evaluated and evaluating others
+
+2. EVALUATION PROCESS:
+
+   A. PREPARATION:
+      - Evaluators review project requirements beforehand
+      - Allocate sufficient time for thorough evaluation
+      - Prepare test cases and questions
+
+   B. DURING EVALUATION:
+      - Test the code functionality
+      - Check for understanding of concepts
+      - Ensure clear communication
+      - Avoid aggressive or defensive positions
+      - Manage emotions professionally
+      - Focus on constructive dialogue
+
+   C. POST-EVALUATION:
+      - Provide specific and actionable written feedback
+      - Highlight both strengths and areas for improvement
+      - Align feedback with the awarded score
+      - Submit feedback immediately after the session
+
+3. AUTOMATED TESTING SYSTEMS:
+
+   A. MOULINETTE:
+      - Automated system that evaluates submitted projects
+      - Rigorously tests code against predefined criteria
+      - Ensures code meets required standards and functions correctly
+      - Stringent about code quality and adherence to specifications
+
+   B. NORMINETTE:
+      - Checks code against 42's coding standards ("The Norm")
+      - Primarily for C projects (C++ has different guidelines)
+      - Running before submission is MANDATORY
+      - Failing Norminette results in automatic project failure
+      - Ensures consistency and quality across all submissions
+
+EVALUATION PHILOSOPHY:
+- Focus on learning through collaboration
+- Continuous improvement over grades
+- Mutual growth and knowledge sharing
+- Real-world software development practices
+- Code reviews simulate professional environments
+
+================================================================================
+SECTION 3: C++ CODING STANDARDS AT 42
+================================================================================
+
+GENERAL CODING PRINCIPLES:
+
+1. CODE QUALITY:
+   - Write clean, efficient, and maintainable code
+   - Ensure code is functional and well-tested
+   - Optimize for performance when appropriate
+
+2. CODE READABILITY:
+   - Proper indentation and formatting
+   - Meaningful variable and function names
+   - Clear and logical structure
+   - Comprehensive comments where necessary
+
+3. ORTHODOX CANONICAL FORM (Coplien Form):
+   
+   For C++ classes, you MUST implement the Orthodox Canonical Form, which
+   includes these four essential components:
+
+   a) DEFAULT CONSTRUCTOR
+      - Constructor with no parameters or all parameters with default values
+      - Initializes object to a valid default state
+
+   b) COPY CONSTRUCTOR
+      - Constructor that creates a new object as a copy of an existing object
+      - Signature: ClassName(const ClassName& other)
+      - Performs deep copy if class manages resources
+
+   c) COPY ASSIGNMENT OPERATOR
+      - Assigns the values from one existing object to another
+      - Signature: ClassName& operator=(const ClassName& other)
+      - Must handle self-assignment
+      - Returns reference to *this
+      - Performs deep copy if class manages resources
+
+   d) DESTRUCTOR
+      - Cleans up resources when object is destroyed
+      - Releases any dynamically allocated memory
+      - Virtual if class is meant to be inherited
+
+   Example skeleton:
+   ```cpp
+   class MyClass {
+   private:
+       // Private members
+   
+   public:
+       // Default constructor
+       MyClass();
+       
+       // Copy constructor
+       MyClass(const MyClass& other);
+       
+       // Copy assignment operator
+       MyClass& operator=(const MyClass& other);
+       
+       // Destructor
+       ~MyClass();
+       
+       // Other member functions
+   };
+   ```
+
+4. BEST PRACTICES:
+   - Avoid memory leaks - always clean up dynamic allocations
+   - Use const correctness
+   - Proper use of namespaces
+   - Avoid global variables
+   - Follow single responsibility principle
+   - Encapsulation: keep data private, provide public interface
+   - Use initialization lists in constructors
+
+5. ERROR HANDLING:
+   - Handle edge cases gracefully
+   - Validate input data
+   - Provide meaningful error messages
+   - Don't crash on invalid input
+
+6. DOCUMENTATION:
+   - Comments should explain WHY, not WHAT
+   - Document complex algorithms
+   - Header files should be self-documenting
+
+7. PROJECT STRUCTURE:
+   - Organize code into appropriate files (.hpp, .cpp)
+   - Makefile must compile without warnings
+   - Use -Wall -Wextra -Werror flags
+   - C++ standard: typically C++98 (unless specified otherwise)
+
+================================================================================
+SECTION 4: CPP09 PROJECT OVERVIEW
+================================================================================
+
+CPP09 is the FINAL MODULE in the C++ curriculum at 42 School.
+
+PRIMARY OBJECTIVES:
+- Integrate and apply all previous C++ knowledge
+- Master the Standard Template Library (STL)
+- Understand and efficiently use STL containers
+- Solve complex, real-world problems
+- Demonstrate proficiency in advanced C++ concepts
+
+PREREQUISITES (concepts from previous modules):
+- Classes and objects
+- Namespaces
+- Operator overloading
+- Inheritance and polymorphism
+- Dynamic memory allocation
+- Templates
+- Exception handling
+- File I/O
+
+PROJECT STRUCTURE:
+The module consists of THREE exercises (ex00, ex01, ex02), each focusing on
+different aspects of the STL and its containers.
+
+LEARNING GOALS:
+1. Deep understanding of STL containers (map, stack, vector, deque, etc.)
+2. Choosing appropriate containers for specific problems
+3. Efficient data storage and retrieval
+4. Algorithm implementation and optimization
+5. Performance analysis and comparison
+6. Real-world application development
+
+================================================================================
+SECTION 5: EXERCISE 00 - BITCOIN EXCHANGE
+================================================================================
+
+OBJECTIVE:
+Develop a program that parses and stores a database of Bitcoin historical
+exchange rates using std::map. The program should process user input to
+extract and display relevant exchange rate information.
+
+DETAILED REQUIREMENTS:
+
+1. PROGRAM NAME: btc
+
+2. INPUT FILES:
+   
+   A. DATABASE FILE (data.csv):
+      - Contains historical Bitcoin exchange rates
+      - Format: date,exchange_rate
+      - Example:
+        date,exchange_rate
+        2009-01-02,0.5
+        2011-01-03,2.0
+        2012-05-15,15.7
+      - Dates are in format: YYYY-MM-DD
+      - Exchange rates are float/double values
+
+   B. INPUT FILE (provided as program argument):
+      - Contains dates and values to be processed
+      - Format: date | value
+      - Example:
+        2011-01-03 | 3
+        2011-01-09 | 1
+        2012-01-11 | -1
+      - Program must validate each line
+
+3. PROGRAM BEHAVIOR:
+   - Read and store the database file in a std::map
+   - Process the input file line by line
+   - For each valid entry, find the exchange rate on that date
+   - If exact date not found, use the closest earlier date
+   - Calculate: value * exchange_rate
+   - Display results
+
+4. OUTPUT FORMAT:
+   - For valid entries: "date => value = result"
+   - Example: "2011-01-03 => 3 = 6"
+
+5. ERROR HANDLING:
+   Must handle and display appropriate errors for:
+   - Bad input format
+   - Invalid dates (e.g., negative numbers, dates in future, invalid format)
+   - Value not a positive number
+   - Value too large (typically > 1000)
+   - File not found or cannot be opened
+   - Empty or corrupted data
+
+   Error message examples:
+   - "Error: bad input => [line]"
+   - "Error: not a positive number."
+   - "Error: too large a number."
+   - "Error: could not open file."
+
+6. IMPLEMENTATION REQUIREMENTS:
+
+   A. DATE CLASS (recommended):
+      - Handle date parsing and storage
+      - Support date comparisons (for finding closest earlier date)
+      - Validate date format and values
+      - Member functions:
+        * Parse date from string
+        * Compare dates (operator overloading)
+        * Validate date
+        * Convert to string for output
+
+   B. BITCOINEXCHANGE CLASS (or similar):
+      - Manage the historical exchange rates database
+      - Use std::map<Date, float> or std::map<std::string, float>
+      - Load and parse the CSV database file
+      - Find exchange rate for a given date
+      - Handle queries efficiently
+      - MUST follow Orthodox Canonical Form
+
+   C. MAIN FUNCTIONALITY:
+      - Parse command line arguments
+      - Load database
+      - Process input file
+      - Display results and errors
+
+7. STL CONTAINER TO USE:
+   - std::map - for storing date/rate pairs
+   - Efficient lookup by key (date)
+   - Automatic sorting by key
+   - Can use lower_bound() to find closest earlier date
+
+8. COMPILATION:
+   - Makefile with rules: all, clean, fclean, re
+   - Compiler flags: -Wall -Wextra -Werror
+   - C++ standard: C++98 (unless specified otherwise)
+
+9. EDGE CASES TO CONSIDER:
+   - Date exists in database exactly
+   - Date doesn't exist (use closest earlier date)
+   - Date is before all dates in database
+   - Empty input lines
+   - Malformed input
+   - Very large or very small values
+   - Leap years for date validation
+
+================================================================================
+SECTION 6: EXERCISE 01 - RPN (Reverse Polish Notation)
+================================================================================
+
+OBJECTIVE:
+Create a program that evaluates mathematical expressions written in Reverse
+Polish Notation (RPN). The program must use a stack-based approach.
+
+DETAILED REQUIREMENTS:
+
+1. PROGRAM NAME: RPN
+
+2. REVERSE POLISH NOTATION OVERVIEW:
+   - Postfix notation: operators come after operands
+   - Examples:
+     * Infix: "3 + 4"      → RPN: "3 4 +"
+     * Infix: "(1 + 2) * 4" → RPN: "1 2 + 4 *"
+     * Infix: "5 - 3 + 8"   → RPN: "5 3 - 8 +"
+
+3. PROGRAM BEHAVIOR:
+   - Accept RPN expression as command line argument
+   - Parse the expression
+   - Evaluate using a stack
+   - Display the result
+
+4. ALGORITHM:
+   - Use std::stack to store numbers
+   - Process tokens from left to right:
+     * If token is a number: push onto stack
+     * If token is an operator: pop two operands, apply operator, push result
+   - Final result is the only element left on stack
+
+5. SUPPORTED OPERATIONS:
+   - Addition: +
+   - Subtraction: -
+   - Multiplication: *
+   - Division: /
+
+6. INPUT FORMAT:
+   - Single argument containing the RPN expression
+   - Numbers and operators separated by spaces
+   - Only single-digit positive integers (0-9)
+   - Example: ./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
+
+7. OUTPUT FORMAT:
+   - Display the result as a number
+   - Example: 42
+
+8. ERROR HANDLING:
+   Must handle:
+   - Invalid syntax/format
+   - Division by zero
+   - Insufficient operands for an operation
+   - Too many operands (invalid expression)
+   - Non-numeric tokens (except operators)
+   - Empty input
+
+   Error message: "Error" (or more specific)
+
+9. IMPLEMENTATION REQUIREMENTS:
+
+   A. RPN CLASS (or function-based approach):
+      - Parse the input expression
+      - Validate tokens
+      - Evaluate using stack
+      - MUST follow Orthodox Canonical Form if using a class
+
+   B. STACK USAGE:
+      - Use std::stack<int> or std::stack<double>
+      - STL stack provides: push(), pop(), top(), empty(), size()
+
+   C. ALGORITHM STEPS:
+      1. Split input string into tokens
+      2. For each token:
+         - If number: push to stack
+         - If operator:
+           * Check stack has at least 2 elements
+           * Pop right operand
+           * Pop left operand
+           * Apply operation: left OP right
+           * Push result
+      3. Verify stack has exactly one element (the result)
+      4. Return/display result
+
+10. STL CONTAINER TO USE:
+    - std::stack - LIFO (Last In, First Out) data structure
+    - Perfect for RPN evaluation
+
+11. COMPILATION:
+    - Makefile with rules: all, clean, fclean, re
+    - Compiler flags: -Wall -Wextra -Werror
+    - C++ standard: C++98 (unless specified otherwise)
+
+12. EDGE CASES TO CONSIDER:
+    - Single number (valid: result is that number)
+    - Division by zero
+    - Expression with only operators
+    - Expression with only numbers
+    - Mixed valid/invalid characters
+    - Very large results (overflow)
+
+13. EXAMPLES:
+
+    Valid inputs:
+    - "3 4 +" → 7
+    - "5 1 2 + 4 * + 3 -" → 14
+    - "8 9 * 9 - 9 - 9 - 4 - 1 +" → 42
+    - "7" → 7
+    
+    Invalid inputs:
+    - "3 4 + +" → Error (not enough operands)
+    - "1 2" → Error (too many operands)
+    - "5 0 /" → Error (division by zero)
+    - "" → Error (empty input)
+
+================================================================================
+SECTION 7: EXERCISE 02 - PMERGE ME
+================================================================================
+
+OBJECTIVE:
+Implement a program that sorts a sequence of positive integers using the
+Ford-Johnson merge-insertion sort algorithm (also known as merge-insertion sort).
+The program must compare the performance of this algorithm using two different
+STL containers.
+
+DETAILED REQUIREMENTS:
+
+1. PROGRAM NAME: PmergeMe
+
+2. ALGORITHM OVERVIEW:
+   
+   FORD-JOHNSON MERGE-INSERTION SORT:
+   - A comparison-based sorting algorithm that minimizes the number of comparisons
+   - Combines recursive sorting with binary insertion
+   - Provably optimal for sequences up to 47 elements in comparison count
+   - Uses the Jacobsthal sequence to determine optimal insertion order
+   
+   Key Principles:
+   1. Pair elements and compare within pairs
+   2. Recursively sort the larger elements (creates "main chain")
+   3. Insert smaller elements ("pend" elements) using binary search
+   4. Insertion order follows Jacobsthal sequence (1,3,5,11,21,43...)
+   5. This order minimizes the worst-case number of comparisons
+   
+   Why Ford-Johnson?
+   - Fewer comparisons than standard merge sort or quicksort
+   - Efficient when comparisons are expensive operations
+   - Demonstrates advanced algorithmic optimization techniques
+
+3. PROGRAM BEHAVIOR:
+   - Accept a sequence of positive integers as command line arguments
+   - Sort the sequence using the Ford-Johnson algorithm
+   - Implement the algorithm with TWO different STL containers
+   - Display timing information for both implementations
+   - Display the sorted result
+
+4. INPUT FORMAT:
+   - Positive integers as command line arguments
+   - Example: ./PmergeMe 3 5 9 7 4
+
+5. OUTPUT FORMAT:
+   Must display:
+   - "Before: [original sequence]"
+   - "After: [sorted sequence]"
+   - "Time to process a range of X elements with [container1]: Y us"
+   - "Time to process a range of X elements with [container2]: Z us"
+
+   Example:
+   ```
+   Before: 3 5 9 7 4
+   After: 3 4 5 7 9
+   Time to process a range of 5 elements with std::vector : 0.00031 us
+   Time to process a range of 5 elements with std::deque : 0.00014 us
+   ```
+
+6. IMPLEMENTATION REQUIREMENTS:
+
+   A. PMERGE_ME CLASS (or template class):
+      - Implement Ford-Johnson algorithm
+      - Template or overload for different container types
+      - MUST follow Orthodox Canonical Form
+
+   B. CONTAINER REQUIREMENTS:
+      - Implement using std::vector
+      - Implement using std::deque
+      - Both implementations must produce the same sorted result
+      - Measure and compare performance
+
+   C. TIMING:
+      - Use <ctime> or <chrono> for precise timing
+      - Measure time for sorting operation only (not I/O)
+      - Display in microseconds (us)
+      - Should demonstrate understanding of performance differences
+
+7. STL CONTAINERS TO USE:
+
+   A. std::vector:
+      - Dynamic array
+      - Contiguous memory
+      - Fast random access: O(1)
+      - Insertion at end: amortized O(1)
+      - Insertion in middle: O(n)
+
+   B. std::deque:
+      - Double-ended queue
+      - Non-contiguous memory (chunks)
+      - Fast insertion at both ends: O(1)
+      - Random access: O(1) but slower than vector
+      - No reallocation needed when growing
+
+8. FORD-JOHNSON ALGORITHM - DETAILED IMPLEMENTATION GUIDE:
+
+   The algorithm minimizes comparisons by sorting in a specific way.
+   
+   STEP-BY-STEP ALGORITHM:
+   
+   1. PAIRING AND COMPARISON PHASE:
+      - Divide the input into pairs: (a1,b1), (a2,b2), (a3,b3), ...
+      - For each pair, compare and ensure first element > second element
+      - If odd number of elements, one element remains unpaired (the "straggler")
+      - Example: [5,2,8,1,9,3,7] → pairs: (5,2), (8,1), (9,3), straggler: 7
+      
+      Result: You now have:
+      - Larger elements: 5, 8, 9 (and potentially straggler)
+      - Smaller elements (pend): 2, 1, 3
+
+   2. RECURSIVE SORT OF LARGER ELEMENTS:
+      - Recursively apply Ford-Johnson to sort the larger elements
+      - This creates the "main chain" (sorted sequence of larger elements)
+      - Base case: if 1 or 0 elements, already sorted
+      - Example: Sorting [5, 8, 9] → main chain: [5, 8, 9]
+      
+      Result: Main chain is now sorted
+
+   3. INITIAL INSERTION:
+      - Insert the first pend element (partner of first main chain element)
+      - This element is guaranteed to be smallest, so insert at beginning
+      - Example: Insert 2 (partner of 5) at start → [2, 5, 8, 9]
+      
+   4. BINARY INSERTION OF REMAINING PEND ELEMENTS:
+      - Insert remaining pend elements using BINARY INSERTION
+      - For each pend element, use binary search to find insertion position
+      - Binary insertion: O(log n) comparisons to find position
+      
+      CRITICAL: Insertion order follows JACOBSTHAL SEQUENCE
+      
+      Jacobsthal sequence: 1, 3, 5, 11, 21, 43, 85, 171...
+      Formula: J(0)=0, J(1)=1, J(n) = J(n-1) + 2*J(n-2)
+      
+      Why Jacobsthal? It minimizes the maximum number of comparisons needed.
+      
+      Insertion order:
+      - Insert pend[J(k)] through pend[J(k-1)+1] in descending order
+      - For k = 3,4,5,...
+      
+      Example: If you have pend elements at indices [1,2,3,4,5,6,7,8]
+      - Insert pend[1] first (already done in step 3)
+      - Insert pend[3] (from Jacobsthal 3)
+      - Insert pend[2] (from 3 down to previous Jacobsthal 1+1)
+      - Insert pend[5] (from Jacobsthal 5)
+      - Insert pend[4] (from 5 down to previous Jacobsthal 3+1)
+      - And so on...
+
+   5. HANDLE STRAGGLER:
+      - If there was an unpaired element, insert it using binary insertion
+      - Insert at the end of the process
+
+   SIMPLIFIED ALGORITHM OVERVIEW:
+   
+   Input: [5, 2, 8, 1, 9, 3, 7]
+   
+   Step 1 - Pair & Compare:
+      Pairs: (5,2), (8,1), (9,3), straggler: 7
+      Larger: [5, 8, 9]
+      Pend: [2, 1, 3]
+   
+   Step 2 - Sort Larger (recursive):
+      Main chain: [5, 8, 9]
+   
+   Step 3 - Insert first pend:
+      Insert 2: [2, 5, 8, 9]
+   
+   Step 4 - Binary insert remaining pend (Jacobsthal order):
+      Insert 3: [2, 3, 5, 8, 9]
+      Insert 1: [1, 2, 3, 5, 8, 9]
+   
+   Step 5 - Insert straggler:
+      Insert 7: [1, 2, 3, 5, 7, 8, 9]
+   
+   Result: [1, 2, 3, 5, 7, 8, 9]
+
+   IMPLEMENTATION TIPS:
+   
+   - Use std::lower_bound() or std::upper_bound() for binary search
+   - Keep track of which elements are in main chain vs pend
+   - Generate Jacobsthal sequence up to needed length
+   - Handle edge cases: 0, 1, 2 elements
+   - The recursion depth is typically small
+   
+   COMPLEXITY:
+   - Comparisons: ~n log₂(n) - 1.415n (optimal for small n)
+   - Time: O(n log n) for implementation with container operations
+   - Space: O(n)
+   
+   WHY IT'S EFFICIENT:
+   - Minimizes comparisons (important when comparisons are expensive)
+   - For n ≤ 47, it's provably optimal in comparison count
+   - Binary insertion reduces comparisons vs linear insertion
+
+9. ERROR HANDLING:
+   Must handle:
+   - No arguments provided
+   - Non-integer arguments
+   - Negative numbers
+   - Duplicate numbers (allowed, should handle correctly)
+   - Very large numbers
+   - Invalid input format
+
+   Error message: "Error" or more specific error
+
+10. COMPILATION:
+    - Makefile with rules: all, clean, fclean, re
+    - Compiler flags: -Wall -Wextra -Werror
+    - C++ standard: C++98 (unless specified otherwise)
+
+11. EDGE CASES TO CONSIDER:
+    - Single element (already sorted)
+    - Two elements
+    - Already sorted sequence
+    - Reverse sorted sequence
+    - All elements identical
+    - Odd number of elements
+    - Even number of elements
+    - Large datasets (test performance)
+
+12. PERFORMANCE CONSIDERATIONS:
+    
+    ALGORITHM PERFORMANCE:
+    - Ford-Johnson minimizes COMPARISONS, not necessarily total operations
+    - Optimal comparison count for n ≤ 47 elements
+    - For larger n, still very competitive in comparison count
+    - However, involves more data movement than simpler algorithms
+    
+    CONTAINER PERFORMANCE:
+    - std::vector: Better cache locality, faster for small-medium datasets
+      * Contiguous memory benefits binary search operations
+      * Insertion requires shifting elements: O(n) per insertion
+      * Best when algorithm does fewer insertions
+    
+    - std::deque: Better for frequent insertions, no reallocation
+      * Non-contiguous chunks may cause cache misses
+      * Insertion still requires shifting within chunks
+      * May perform better with very large datasets
+    
+    EXPECTED RESULTS:
+    - For Ford-Johnson specifically: vector usually wins
+    - Reason: Algorithm is comparison-heavy, not insertion-heavy
+    - Binary search benefits from vector's cache locality
+    - The recursive nature limits the number of actual insertions
+    
+    TIMING NOTES:
+    - Measure only the sorting operation, not I/O or parsing
+    - Run multiple iterations for accurate timing on small datasets
+    - Results may vary based on input size and data distribution
+    - Document and explain your observed performance differences
+
+13. EXAMPLES:
+
+    Example 1:
+    ```
+    ./PmergeMe 3 5 9 7 4
+    Before: 3 5 9 7 4
+    After: 3 4 5 7 9
+    Time to process a range of 5 elements with std::vector : 0.00031 us
+    Time to process a range of 5 elements with std::deque : 0.00014 us
+    ```
+
+    Example 2:
+    ```
+    ./PmergeMe 8 6 4 2 0
+    Before: 8 6 4 2 0
+    After: 0 2 4 6 8
+    Time to process a range of 5 elements with std::vector : 0.00025 us
+    Time to process a range of 5 elements with std::deque : 0.00012 us
+    ```
+
+    Example 3 (large dataset):
+    ```
+    ./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
+    Before: [large sequence]
+    After: [sorted sequence]
+    Time to process a range of 3000 elements with std::vector : 12.5 us
+    Time to process a range of 3000 elements with std::deque : 15.3 us
+    ```
+
+14. BONUS CONSIDERATIONS (if applicable):
+    - Optimize the algorithm implementation
+    - Test with very large datasets
+    - Implement with additional containers for comparison
+    - Detailed performance analysis
+    - Visualization of comparisons made
+
+================================================================================
+SECTION 8: GENERAL PROJECT REQUIREMENTS
+================================================================================
+
+ALL EXERCISES MUST:
+
+1. COMPILATION:
+   - Compile with: c++ -Wall -Wextra -Werror -std=c++98
+   - Makefile must not relink
+   - Makefile rules: all, clean, fclean, re
+   - No compilation warnings
+
+2. CODE ORGANIZATION:
+   - Separate .hpp and .cpp files
+   - One class per file (typically)
+   - Include guards in headers
+   - Proper file naming convention
+
+3. ORTHODOX CANONICAL FORM:
+   - ALL classes must implement:
+     * Default constructor
+     * Copy constructor
+     * Copy assignment operator
+     * Destructor
+
+4. MEMORY MANAGEMENT:
+   - No memory leaks
+   - Proper resource cleanup
+   - Test with valgrind: valgrind --leak-check=full ./program
+
+5. FUNCTIONALITY:
+   - Programs must not crash
+   - Handle all specified error cases
+   - Provide meaningful error messages
+   - Exit gracefully on errors
+
+6. SUBMISSION:
+   - Follow the required directory structure:
+     ex00/, ex01/, ex02/
+   - Each exercise in its own directory
+   - Include Makefile in each directory
+   - Do not submit object files or executables
+
+7. TESTING:
+   - Test with various inputs
+   - Test edge cases
+   - Test error handling
+   - Compare with expected outputs
+   - Peer evaluation will test thoroughly
+
+================================================================================
+SECTION 9: RECOMMENDED DEVELOPMENT APPROACH
+================================================================================
+
+1. READ THE SUBJECT CAREFULLY:
+   - Understand all requirements before coding
+   - Identify all edge cases
+   - Plan class structure
+
+2. START WITH DESIGN:
+   - Design class hierarchy
+   - Identify necessary member variables and functions
+   - Plan data flow
+
+3. IMPLEMENT INCREMENTALLY:
+   - Start with basic functionality
+   - Test each component
+   - Add error handling
+   - Optimize if needed
+
+4. TEST THOROUGHLY:
+   - Create diverse test cases
+   - Test edge cases
+   - Use valgrind for memory checks
+   - Compare with expected outputs
+
+5. CODE REVIEW:
+   - Review your own code
+   - Check for Orthodox Canonical Form
+   - Verify all error handling
+   - Ensure clean, readable code
+
+6. PREPARE FOR EVALUATION:
+   - Understand every line of your code
+   - Be ready to explain design decisions
+   - Prepare examples and test cases
+   - Know the complexity of your algorithms
+
+================================================================================
+SECTION 10: COMMON PITFALLS TO AVOID
+================================================================================
+
+1. MEMORY MANAGEMENT:
+   - Forgetting to implement deep copy in copy constructor/assignment
+   - Not checking for self-assignment in operator=
+   - Memory leaks from not deleting dynamically allocated memory
+
+2. ORTHODOX CANONICAL FORM:
+   - Missing any of the four required functions
+   - Incorrect implementation (shallow copy instead of deep)
+   - Not returning *this in assignment operator
+
+3. ERROR HANDLING:
+   - Not validating input
+   - Crashing on invalid input instead of handling gracefully
+   - Generic error messages instead of specific ones
+
+4. STL USAGE:
+   - Using inappropriate containers for the task
+   - Not understanding container properties and complexities
+   - Inefficient algorithms
+
+5. CODING STYLE:
+   - Inconsistent naming conventions
+   - Poor code organization
+   - Insufficient or excessive comments
+
+6. COMPILATION:
+   - Code that doesn't compile
+   - Compilation warnings
+   - Makefile that relinks unnecessarily
+
+================================================================================
+SECTION 11: USEFUL RESOURCES
+================================================================================
+
+C++ REFERENCE:
+- cppreference.com - Comprehensive C++ reference
+- cplusplus.com - C++ documentation and tutorials
+
+STL CONTAINERS:
+- std::map documentation
+- std::stack documentation
+- std::vector documentation
+- std::deque documentation
+
+ALGORITHMS:
+- Ford-Johnson algorithm research papers
+- Reverse Polish Notation tutorials
+- Binary search and insertion algorithms
+
+TOOLS:
+- valgrind - Memory leak detection
+- gdb - Debugging
+- time/chrono - Performance measurement
+
+BEST PRACTICES:
+- C++ Core Guidelines
+- Orthodox Canonical Form documentation
+- Design patterns in C++
+
+================================================================================
+SECTION 12: EVALUATION CHECKLIST
+================================================================================
+
+BEFORE SUBMITTING:
+
+[ ] All exercises compile without warnings
+[ ] All Makefiles work correctly (all, clean, fclean, re)
+[ ] No memory leaks (checked with valgrind)
+[ ] All classes implement Orthodox Canonical Form
+[ ] All error cases are handled
+[ ] Code is clean and readable
+[ ] Comments explain complex logic
+[ ] Tested with various inputs and edge cases
+[ ] No forbidden functions or external libraries used
+[ ] File organization follows requirements
+
+DURING PEER EVALUATION:
+
+[ ] Can explain all code thoroughly
+[ ] Understand design decisions
+[ ] Can demo program with various inputs
+[ ] Can explain algorithm complexity
+[ ] Can explain STL container choices
+[ ] Prepared test cases showing different scenarios
+[ ] Can handle evaluator's questions
+[ ] Professional and respectful communication
+
+================================================================================
+END OF CONTEXT DOCUMENT
+================================================================================
+
+This document serves as a comprehensive reference for developing the CPP09
+project at 42 School. All requirements are based on current and verifiable
+information about 42's standards and the CPP09 project structure.
+
+Remember: The goal is not just to complete the project, but to deeply
+understand STL containers, algorithms, and advanced C++ concepts. Take time
+to learn and experiment.
+
+Good luck with your CPP09 project!
+
+================================================================================
+
